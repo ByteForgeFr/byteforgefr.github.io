@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteForgeFr | Services Tech & Créatifs</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        :root {
+            --bg-dark: #0b0f19;
+            --bg-card: rgba(22, 28, 45, 0.6);
+            --border-color: rgba(255, 255, 255, 0.08);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #00d2ff;
+            --accent-hover: #00a8cc;
+            --accent-glow: rgba(0, 210, 255, 0.15);
+            --tag-fixed: #10b981;
+            --tag-devis: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- BACKGROUND EFFETS --- */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.05) 0%, rgba(0,0,0,0) 70%);
+            top: -200px;
+            right: -200px;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* --- HEADER --- */
+        header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .discord-btn {
+            background: linear-gradient(135deg, #5865F2 0%, #404eed 100%);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .discord-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            max-width: 800px;
+            margin: 60px auto 80px auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* --- FILTRES CATÉGORIES --- */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+            padding: 0 20px;
+        }
+
+        .filter-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            color: #fff;
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+
+        /* --- GRILLE DE PRESTATIONS --- */
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto 100px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 210, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .category-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .price-badge {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .price-fixed {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--tag-fixed);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .price-devis {
+            background: rgba(245, 158, 11, 0.1);
+            color: var(--tag-devis);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .price-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .order-btn {
+            background: transparent;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .order-btn:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--border-color);
+            background: rgba(10, 12, 19, 0.5);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .filter-container { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">ByteForge<span>Fr</span></div>
+        <a href="#" class="discord-btn">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: middle;">
+                <path d="M13.545 2.907a13.227 13.227 0 0 0-3.257-1.011.05.05 0 0 0-.052.025c-.141.25-.297.575-.407.833a12.211 12.211 0 0 0-3.658 0 8.258 8.258 0 0 0-.412-.833.051.051 0 0 0-.052-.025c-1.125.194-2.22.534-3.257 1.011a.041.041 0 0 0-.021.018C.356 6.024-.213 9.047.066 12.032a.054.054 0 0 0 .022.039c2.11 1.561 4.1 2.528 6.044 3.134a.05.05 0 0 0 .053-.015c.462-.631.874-1.3 1.239-2.007a.05.05 0 0 0-.027-.07 8.036 8.036 0 0 1-1.153-.55.05.05 0 0 1-.006-.083c.078-.058.156-.118.23-.179a.051.051 0 0 1 .054-.007c3.92 1.793 8.18 1.793 12.061 0a.051.051 0 0 1 .054.007c.074.06.152.121.23.179a.05.05 0 0 1-.006.083 7.683 7.683 0 0 1-1.153.549.05.05 0 0 0-.027.073c.366.703.777 1.372 1.24 2.003a.05.05 0 0 0 .053.015c1.944-.606 3.934-1.573 6.044-3.134a.054.054 0 0 0 .022-.039c.321-3.486-.534-6.471-2.42-9.107a.042.042 0 0 0-.02-.019zM5.14 10.174c-.765 0-1.397-.704-1.397-1.565s.62-1.565 1.397-1.565c.76 0 1.39.71 1.397 1.565 0 .86-.62 1.565-1.397 1.565zm4.744 0c-.765 0-1.397-.704-1.397-1.565s.62-1.565 1.397-1.565c.76 0 1.39.71 1.397 1.565 0 .86-.62 1.565-1.397 1.565z"/>
+            </svg>
+            Rejoindre le Discord
+        </a>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Prestations fiables, accessibles et professionnelles.</h1>
+        <p>Assistance technique de pointe et création sur-mesure pour particuliers, créateurs de contenus et entrepreneurs. Propulsé par l'élite de ByteForgeFr.</p>
+    </section>
+
+    <!-- FILTRES -->
+    <div class="filter-container">
+        <button class="filter-btn active" data-filter="all">Tous les services</button>
+        <button class="filter-btn" data-filter="hardware">Hardware / PC</button>
+        <button class="filter-btn" data-filter="software">Software & Cyber</button>
+        <button class="filter-btn" data-filter="dev">Développement</button>
+        <button class="filter-btn" data-filter="extra">Création & Média</button>
+    </div>
+
+    <!-- GRILLE SERVICES -->
+    <main class="services-grid" id="services-container"></main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 ByteForgeFr. Tous droits réservés. Serveur communautaire & professionnel.</p>
+    </footer>
+
+    <!-- LOGIQUE JAVASCRIPT -->
+    <script>
+        // Injection dynamique de tes données exactes du Discord
+        const servicesData = [
+            // HARDWARE
+            { id: 1, cat: 'hardware', title: 'Opti-PC Gaming', desc: 'Optimisation gaming complète & boosts de performances système.', price: '15€', type: 'fixed' },
+            { id: 2, cat: 'hardware', title: 'Opti Hardware & BIOS', desc: 'Optimisation fine CPU, RAM, réglages BIOS avancés et réduction drastique de la latence.', price: '40€', type: 'fixed' },
+            { id: 3, cat: 'hardware', title: 'Offre Optimisation Complète', desc: 'Le combo ultime : Optimisation gaming complète + Optimisation hardware & BIOS.', price: '50€', type: 'fixed' },
+            { id: 4, cat: 'hardware', title: 'Config PC & Composants', desc: 'Aide à la sélection de composants optimisés selon ton budget et tes besoins.', price: '15€', type: 'fixed' },
+            { id: 5, cat: 'hardware', title: 'Montage PC', desc: 'Assistance complète pas-à-pas pour monter ta machine de A à Z en toute sécurité.', price: '30€', type: 'fixed' },
+            { id: 6, cat: 'hardware', title: 'Dépannage PC', desc: 'Analyse, résolution de pannes complexes et fixs de bugs matériels ou système.', price: '20€ - 35€', type: 'fixed' },
+            { id: 7, cat: 'hardware', title: 'Diagnostic Système', desc: 'Analyse complète de la santé de ton OS et rapports de performances globaux.', price: '30€', type: 'fixed' },
+            
+            // SOFTWARE
+            { id: 8, cat: 'software', title: 'Accompagnement Cybersécurité', desc: 'Audit de sécurité, protection des données et hardening de systèmes.', price: 'Sur Devis', type: 'devis' },
+            { id: 9, cat: 'software', title: 'Scripts & Tools', desc: 'Création d\'outils spécifiques, scripts d\'automatisation shell/bash/python.', price: 'Sur Devis', type: 'devis' },
+            { id: 10, cat: 'software', title: 'Réseau & Virtualisation', desc: 'Configuration de proxmox, VM, docker, VPN et architectures réseaux sécurisées.', price: 'Sur Devis', type: 'devis' },
+            { id: 11, cat: 'software', title: 'Assistance Linux', desc: 'Installation, configuration, sysadmin et migration vers environnements Linux.', price: 'Sur Devis', type: 'devis' },
+            
+            // DEV
+            { id: 12, cat: 'dev', title: 'Développement Web Vitrine', desc: 'Conception de sites vitrines modernes, responsifs et optimisés pour le SEO.', price: 'Sur Devis', type: 'devis' },
+            { id: 13, cat: 'dev', title: 'Boutiques Shopify', desc: 'Création, configuration complète et customisation avancée de shops e-commerce.', price: 'Sur Devis', type: 'devis' },
+            { id: 14, cat: 'dev', title: 'Applications & API', desc: 'Développement d\'outils métiers, applications dédiées et intégrations d\'API tierces.', price: 'Sur Devis', type: 'devis' },
+            { id: 15, cat: 'dev', title: 'Création Bot Discord', desc: 'Développement de bots personnalisés sur-mesure ou configurations d\'outils existants.', price: '5€', type: 'fixed' },
+            { id: 16, cat: 'dev', title: 'Aide au Debug', desc: 'Analyse de ton code, correction de bugs et résolution de problèmes techniques.', price: '20€', type: 'fixed' },
+            
+            // EXTRA
+            { id: 17, cat: 'extra', title: 'Outils OSINT & Recherche', desc: 'Recherches spécialisées et mise en place de structures d\'investigation numérique.', price: 'Devis (-%)', type: 'devis' },
+            { id: 18, cat: 'extra', title: 'Montage Vidéo', desc: 'Édition, cuts, effets et mastering de tes vidéos pour réseaux ou projets pros.', price: 'Devis (-%)', type: 'devis' },
+            { id: 19, cat: 'extra', title: 'Graphisme & Visuels', desc: 'Création d\'identités graphiques, logos, bannières et contenus médias impactants.', price: 'Devis (-%)', type: 'devis' }
+        ];
+
+        const container = document.getElementById('services-container');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        // Fonction pour afficher les cartes
+        function renderServices(filter) {
+            container.innerHTML = '';
+            
+            const filtered = filter === 'all' 
+                ? servicesData 
+                : servicesData.filter(s => s.cat === filter);
+
+            filtered.forEach(s => {
+                const badgeClass = s.type === 'fixed' ? 'price-fixed' : 'price-devis';
+                const badgeLabel = s.type === 'fixed' ? 'Tarif Fixe' : 'Sur Devis';
+
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div>
+                        <div class="card-header">
+                            <span class="category-badge">${s.cat}</span>
+                            <span class="price-badge ${badgeClass}">${badgeLabel}</span>
+                        </div>
+                        <h3>${s.title}</h3>
+                        <p>${s.desc}</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="price-value">${s.price}</span>
+                        <button class="order-btn" onclick="alert('Redirection vers le salon de commande du Discord !')">Commander</button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Gestion du filtrage au clic
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                renderServices(btn.getAttribute('data-filter'));
+            });
+        });
+
+        // Premier run
+        renderServices('all');
+    </script>
+</body>
+</html>
