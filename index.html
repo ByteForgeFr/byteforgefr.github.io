@@ -320,31 +320,31 @@
         // Injection dynamique de tes données exactes du Discord
         const servicesData = [
             // HARDWARE
-            { id: 1, cat: 'hardware', title: 'Opti-PC Gaming', desc: 'Optimisation gaming complète & boosts de performances système.', price: '15€', type: 'fixed' },
-            { id: 2, cat: 'hardware', title: 'Opti Hardware & BIOS', desc: 'Optimisation fine CPU, RAM, réglages BIOS avancés et réduction drastique de la latence.', price: '40€', type: 'fixed' },
-            { id: 3, cat: 'hardware', title: 'Offre Optimisation Complète', desc: 'Le combo ultime : Optimisation gaming complète + Optimisation hardware & BIOS.', price: '50€', type: 'fixed' },
-            { id: 4, cat: 'hardware', title: 'Config PC & Composants', desc: 'Aide à la sélection de composants optimisés selon ton budget et tes besoins.', price: '15€', type: 'fixed' },
-            { id: 5, cat: 'hardware', title: 'Montage PC', desc: 'Assistance complète pas-à-pas pour monter ta machine de A à Z en toute sécurité.', price: '30€', type: 'fixed' },
-            { id: 6, cat: 'hardware', title: 'Dépannage PC', desc: 'Analyse, résolution de pannes complexes et fixs de bugs matériels ou système.', price: '20€ - 35€', type: 'fixed' },
-            { id: 7, cat: 'hardware', title: 'Diagnostic Système', desc: 'Analyse complète de la santé de ton OS et rapports de performances globaux.', price: '30€', type: 'fixed' },
+            { id: 1, cat: 'hardware', title: 'Opti-PC Gaming', desc: 'Optimisation gaming complète & boosts de performances système.', price: '15€', type: 'fixed', discord_link: 'https://discord.gg/86HdpqzpVh' },
+            { id: 2, cat: 'hardware', title: 'Opti Hardware & BIOS', desc: 'Optimisation fine CPU, RAM, réglages BIOS avancés et réduction drastique de la latence.', price: '40€', type: 'fixed', discord_link: 'https://discord.gg/86HdpqzpVh' },
+            { id: 3, cat: 'hardware', title: 'Offre Optimisation Complète', desc: 'Le combo ultime : Optimisation gaming complète + Optimisation hardware & BIOS.', price: '50€', type: 'fixed', discord_link: 'https://discord.gg/86HdpqzpVh' },
+            { id: 4, cat: 'hardware', title: 'Config PC & Composants', desc: 'Aide à la sélection de composants optimisés selon ton budget et tes besoins.', price: '15€', type: 'fixed', discord_link: 'https://discord.gg/zzT5B3cefm' },
+            { id: 5, cat: 'hardware', title: 'Montage PC', desc: 'Assistance complète pas-à-pas pour monter ta machine de A à Z en toute sécurité.', price: '30€', type: 'fixed', discord_link: 'https://discord.gg/NkjAkau7MC' },
+            { id: 6, cat: 'hardware', title: 'Dépannage PC', desc: 'Analyse, résolution de pannes complexes et fixs de bugs matériels ou système.', price: '20€ - 35€', type: 'fixed', discord_link: 'https://discord.gg/s5U8aTTrwz' },
+            { id: 7, cat: 'hardware', title: 'Diagnostic Système', desc: 'Analyse complète de la santé de ton OS et rapports de performances globaux.', price: '30€', type: 'fixed', discord_link: 'https://discord.gg/7r6GCcRpP7' },
             
             // SOFTWARE
-            { id: 8, cat: 'software', title: 'Accompagnement Cybersécurité', desc: 'Audit de sécurité, protection des données et hardening de systèmes.', price: 'Sur Devis', type: 'devis' },
-            { id: 9, cat: 'software', title: 'Scripts & Tools', desc: 'Création d\'outils spécifiques, scripts d\'automatisation shell/bash/python.', price: 'Sur Devis', type: 'devis' },
-            { id: 10, cat: 'software', title: 'Réseau & Virtualisation', desc: 'Configuration de proxmox, VM, docker, VPN et architectures réseaux sécurisées.', price: 'Sur Devis', type: 'devis' },
-            { id: 11, cat: 'software', title: 'Assistance Linux', desc: 'Installation, configuration, sysadmin et migration vers environnements Linux.', price: 'Sur Devis', type: 'devis' },
+            { id: 8, cat: 'software', title: 'Accompagnement Cybersécurité', desc: 'Audit de sécurité, protection des données et hardening de systèmes.', price: 'Sur Devis', type: 'devis', discord_link: 'https://discord.gg/BAtqZZJ24X' },
+            { id: 9, cat: 'software', title: 'Scripts & Tools', desc: 'Création d\'outils spécifiques, scripts d\'automatisation shell/bash/python.', price: 'Sur Devis', type: 'devis', discord_link: 'https://discord.gg/9kVR369vCC' },
+            { id: 10, cat: 'software', title: 'Réseau & Virtualisation', desc: 'Configuration de proxmox, VM, docker, VPN et architectures réseaux sécurisées.', price: 'Sur Devis', type: 'devis', discord_link: 'https://discord.gg/XBAjRXaChf' },
+            { id: 11, cat: 'software', title: 'Assistance Linux', desc: 'Installation, configuration, sysadmin et migration vers environnements Linux.', price: 'Sur Devis', type: 'devis', discord_link: 'https://discord.gg/GaVZczkrpj' },
             
             // DEV
-            { id: 12, cat: 'dev', title: 'Développement Web Vitrine', desc: 'Conception de sites vitrines modernes, responsifs et optimisés pour le SEO.', price: 'Sur Devis', type: 'devis' },
-            { id: 13, cat: 'dev', title: 'Boutiques Shopify', desc: 'Création, configuration complète et customisation avancée de shops e-commerce.', price: 'Sur Devis', type: 'devis' },
-            { id: 14, cat: 'dev', title: 'Applications & API', desc: 'Développement d\'outils métiers, applications dédiées et intégrations d\'API tierces.', price: 'Sur Devis', type: 'devis' },
-            { id: 15, cat: 'dev', title: 'Création Bot Discord', desc: 'Développement de bots personnalisés sur-mesure ou configurations d\'outils existants.', price: '5€', type: 'fixed' },
-            { id: 16, cat: 'dev', title: 'Aide au Debug', desc: 'Analyse de ton code, correction de bugs et résolution de problèmes techniques.', price: '20€', type: 'fixed' },
+            { id: 12, cat: 'dev', title: 'Développement Web Vitrine', desc: 'Conception de sites vitrines modernes, responsifs et optimisés pour le SEO.', price: 'Sur Devis', type: 'devis', discord_link: 'https://discord.gg/n8cpVKvHKj' },
+            { id: 13, cat: 'dev', title: 'Boutiques Shopify', desc: 'Création, configuration complète et customisation avancée de shops e-commerce.', price: 'Sur Devis', type: 'devis', discord_link: 'https://discord.gg/B9TkNkpeKU' },
+            { id: 14, cat: 'dev', title: 'Applications & API', desc: 'Développement d\'outils métiers, applications dédiées et intégrations d\'API tierces.', price: 'Sur Devis', type: 'devis', discord_link: 'https://discord.gg/aahcfVPPKy' },
+            { id: 15, cat: 'dev', title: 'Création Bot Discord', desc: 'Développement de bots personnalisés sur-mesure ou configurations d\'outils existants.', price: '5€', type: 'fixed', discord_link: 'https://discord.gg/9bmjXgYGbf' },
+            { id: 16, cat: 'dev', title: 'Aide au Debug', desc: 'Analyse de ton code, correction de bugs et résolution de problèmes techniques.', price: '20€', type: 'fixed', discord_link: 'https://discord.gg/b2bbdcY2EZ' },
             
             // EXTRA
-            { id: 17, cat: 'extra', title: 'Outils OSINT & Recherche', desc: 'Recherches spécialisées et mise en place de structures d\'investigation numérique.', price: 'Devis (-%)', type: 'devis' },
-            { id: 18, cat: 'extra', title: 'Montage Vidéo', desc: 'Édition, cuts, effets et mastering de tes vidéos pour réseaux ou projets pros.', price: 'Devis (-%)', type: 'devis' },
-            { id: 19, cat: 'extra', title: 'Graphisme & Visuels', desc: 'Création d\'identités graphiques, logos, bannières et contenus médias impactants.', price: 'Devis (-%)', type: 'devis' }
+            { id: 17, cat: 'extra', title: 'Outils OSINT & Recherche', desc: 'Recherches spécialisées et mise en place de structures d\'investigation numérique.', price: 'Devis (-%)', type: 'devis', discord_link: 'https://discord.gg/UuHsKEhpJT' },
+            { id: 18, cat: 'extra', title: 'Montage Vidéo', desc: 'Édition, cuts, effets et mastering de tes vidéos pour réseaux ou projets pros.', price: 'Devis (-%)', type: 'devis', discord_link: 'https://discord.gg/bZqPG5hsbQ' },
+            { id: 19, cat: 'extra', title: 'Graphisme & Visuels', desc: 'Création d\'identités graphiques, logos, bannières et contenus médias impactants.', price: 'Devis (-%)', type: 'devis', discord_link: 'https://discord.gg/2BrAQHNSPr' }
         ];
 
         const container = document.getElementById('services-container');
@@ -375,7 +375,7 @@
                     </div>
                     <div class="card-footer">
                         <span class="price-value">${s.price}</span>
-                        <button class="order-btn" onclick="alert('Redirection vers le salon de commande du Discord !')">Commander</button>
+                        <button class="order-btn" onclick="window.location.href=${s.discord_link}">Commander</button>
                     </div>
                 `;
                 container.appendChild(card);
